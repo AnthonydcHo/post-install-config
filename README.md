@@ -2,20 +2,10 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-<h1>osTicket -  Post-Install Configuration</h1>
-This tutorial outlines the post-install configuration of the open-source helpdesk ticketing system osTicket.<br />
+ 
+<h2>Description</h2>  
+This tutorial outlines the post-install configuration of the open-source helpdesk ticketing system osTicket. It consists of setting up multiple agents along with their departments, roles, and permissions. As well as, configuring SLAs (Service Level Agreements), help topics, and users.<br />
 
-
-
-<h2>Environments and Technologies Used</h2>
-
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Internet Information Services (IIS)
-
-<h2>Operating Systems Used </h2>
-
-- Windows 10</b> (21H2)
 
 <h2>List of Prerequisites</h2>
 
@@ -23,178 +13,125 @@ This tutorial outlines the post-install configuration of the open-source helpdes
 - Virtual Machine
 - osTicket 
 
+<h2>Environments and Technologies Used</h2>
 
+- Microsoft Azure (Virtual Machines/Compute)
+- Remote Desktop
+- Internet Information Services (IIS)
+- Windows 10
+    
 
-   
-
-<h2>Installation Steps</h2>
-
-<h3>Step 1: Open osTicket and Log In
-
-- Log in to osTicket using the credentials you made during the installation tutorial </h3>
-
+<h2>Program walk-through:</h2>
 <p align="center">
-<img src="https://i.imgur.com/gAXVBO2.png" height="80%" width="80%" alt="Azure Free Account"/>	
+First, we will acknowledge what agent panel vs admin panel looks like. Below is the agent panel (help desk): <br/>
+<img src="https://i.imgur.com/e8IkkAn.png" height="80%" width="80%" 
+<br />
+<br />
+Admin panel, notice there are more admin technical control:  <br/>
+<img src="https://i.imgur.com/7CW3RAj.png" height="80%" width="80%" 
+<br />
+<br />
+In the admin panel, we will configure Roles for grouping permissions Admin Panel -> Agents > Roles > Add New Role > we can name it Supreme Admin:  <br/>
+<img src="https://i.imgur.com/MnAc8EI.png" height="80%" width="80%" 
+<br />
+<br />
+For Supreme Admin, we will check off all permissions in tickets, tasks, and knowledge:  <br/>
+<img src="https://i.imgur.com/nvTAz7N.png" height="80%" width="80%" <br/>
+<br />
+<br />
+<img src="https://i.imgur.com/5HOSetv.png" height="80%" width="80%" <br/> 
+<br />
+<br />
+<img src="https://i.imgur.com/ZyjpjHl.png" height="80%" width="80%"    
+<br />
+<br />
+Supreme Admin (in admin panel you will see the button to switch to agent panel in right corner and vice versa):  <br/>
+<img src="https://i.imgur.com/aRLt2q0.png" height="80%" width="80%" 
+<br />
+<br />
+Configuring Departments for ticket visability to sysadmin. Admin Panel > Agents > Departments > Create Dept:  <br/>
+<img src="https://i.imgur.com/sxQB0bC.png" height="80%" width="80%" 
+<br />
+<br />
+Configuring Teams for teams for different departments. In this situation we will use a online banking team. Admin Panel > Agents > Teams (Pull Agents from different Departments):  <br/>
+<img src="https://i.imgur.com/HB7NXYv.png" height="80%" width="80%" 
+<br />
+<br />
+Configuring for anyone to create tickets. Admin Panel > Settings -> User Settings (UNCHECK: unregistered users can create tickets) Registration Required: Require registration and login to create tickets:  <br/>
+<img src="https://i.imgur.com/aLWoQjm.png" height="80%" width="80%" 
+<br />
+<br />
+Configuring Agents/Workers, in this situation these are the actual workers in help desk. We can name our agents Jane Doe and John Doe. Admin Panel > Agents > Create. We can set up Jane for support/sysadmin department and Supreme Admin Access (will have all permissions, we will not uncheck any boxes) online banking team:  <br/>
+<img src="https://i.imgur.com/tnnwAeD.png" height="80%" width="80%" 
+<br />
+<br />
+We can setup and type out Jane and John account name/passwords on this notepad just in case we forget:  <br/>
+<img src="https://i.imgur.com/9zTiaQI.png" height="80%" width="80%" 
+<br />
+<br />
+We can configure John. Email is fake and this situation john@lognpacific.com for support department and view only, we won't be assigning a team for John:  <br/>
+<img src="https://i.imgur.com/nDIqeS0.png" height="80%" width="80%" 
+<br />
+<br />
+To set up Jane Password, Agent > Jane Doe > Jane (should be typed in) > Set Password > uncheck Send the agent a password reset email and Require password at next login > type in Password1 > Update:  <br/>
+<img src="https://i.imgur.com/fYfPaHH.png" height="80%" width="80%" 
+<br />
+<br />
+Same step for set up for John:  <br/>
+<img src="https://i.imgur.com/KO3Eucn.png" height="80%" width="80%" 
+<br />
+<br />
+We will configure a user account name Karen. We will switch to Agent Panel > User > New:  <br/>
+<img src="https://i.imgur.com/pwYB5ze.png" height="80%" width="80%" 
+<br />
+<br />
+We can use a fake email karen@lognpacific.com > Add User:  <br/>
+<img src="https://i.imgur.com/3DAdec3.png" height="80%" width="80%" 
+<br />
+<br />
+Configure SLA, how much time to respond to a ticket. We can go back to Admin Panel > Manage > SLA:  <br/>
+<img src="https://i.imgur.com/uBu1uDF.png" height="80%" width="80%" 
+<br />
+<br />
+Click Add New SLA Plan and we can configure for name Sev-A (Grace Period: 1 hour, Schedule: 24/7):  <br/>
+<img src="https://i.imgur.com/62MQWzS.png" height="80%" width="80%" 
+<br />
+<br />
+Click Add New SLA Plan and we can configure for name Sev-B (Grace Period: 4 hours, Schedule: 24/7):  <br/>
+<img src="https://i.imgur.com/Kns3Zkm.png" height="80%" width="80%" 
+<br />
+<br />
+Click Add New SLA Plan and we can configure for name Sev-C (Grace Period: 8 hours, Business Hours):  <br/>
+<img src="https://i.imgur.com/MiGTgPS.png" height="80%" width="80%" 
+<br />
+<br />
+SLA PLAN:  <br/>
+<img src="https://i.imgur.com/W6Odb7U.png" height="80%" width="80%" 
+<br />
+<br />
+Next we can configure Help Topics 5 (for when users create tickets) Admin Panel > Manage > Help Topic > The first topic when be on Business Critical Outage > Parent topic: Report a Problem > Add Topic <br/>
+<img src="https://i.imgur.com/jdICoxV.png" height="80%" width="80%" 
+<br />
+<br />
+Help Topic 2 Personal Computer Issues > Parent topic: Report a Problem > Add Topic: <br/>
+<img src="https://i.imgur.com/FRU9678.png" height="80%" width="80%" 
+<br />
+<br />
+Help Topic 3 Equipment Request > Parent topic: General Inquiry > Add Topic: <br/>
+<img src="https://i.imgur.com/ZQlxGPW.png" height="80%" width="80%" 
+<br />
+<br />
+Help Topic 4 Password Reset > Parent topic: Report a Problem > Add Topic:  <br/>
+<img src="https://i.imgur.com/I837xUM.png" height="80%" width="80%" 
+<br />
+<br />
+Help Topic 5 Other > Parent topic: General Inquiry > Add Topic:  <br/>
+<img src="https://i.imgur.com/ezHVGL1.png" height="80%" width="80%" 
+<br />
+<br />
 
+<h2>osTicket Setup Complete!</h2>
 
-<h3>Step 2: Configure Roles </h3>
-
-- Make sure you are in the Admin panel (check the top-right of the screen to see which panel you are in)
-	- If it says "Agent," you are in the Admin panel
-- Select the Agent tab > Roles > Add New Role
-	- Name: Supreme Admin
-	- Select Permissions tab and check every box under the "Tickets," "Tasks," and "Knowledgebase" sections
-- Select Add Role
-	
-<p align="center">
-<img src="https://i.imgur.com/9tiOON2.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/CfCzRRk.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-
-<h3>Step 3: Configure Departments</h3>
-
-- Ensure you are still in the Admin panel
-- Select the Agent tab > Departments > Add New Department 
-	- Name: System Administrators
-- Select Create Department 
-
-
-<p align="center">
-<img src="https://i.imgur.com/f2uEloL.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/X2dXwjY.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-
-<h3>Step 4: Configure Teams
-</h3>
-
-- Select the Agent tab > Teams > Add New Team
-	- Name: Level II Support 
-- Go to the Members tab and select yourself in "Select Agent" dropdown menu
-- Select Create Team
-	
-<p align="center">
-<img src="https://i.imgur.com/v6zzN3N.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/4IieS80.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-<h3>Step 5: Allow Anyone to Create Tickets</h3>
-
-- Select Settings > User Settings
-	- Make sure the following box is unchecked: 
-		- Registration Required: Require registration and login to create tickets 
-		
-<p align="center">
-<img src="https://i.imgur.com/kcd1jRf.png" height="80%" width="80%" alt="Azure Free Account"/>		
-
-
-<h3>Step 6: Configure Agents</h3>
-
-- Select the Agent tab > Add New Agents
-	- Name: Jane Doe
-	- Email : jane.doe(@)osticket.com
-	- Username: jane.doe
-	- Click Set Password and uncheck the box that says "Send the Agent a Password Reset Email"
-		- Set your password to anything you like
-		- Uncheck the box that says "Require Password Change at Next Login"
-		- Select set
-		
-<p align="center">
-<img src="https://i.imgur.com/fTvI0Ru.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/6OU5KqX.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-- Select the Access tab 
-	- Under Primary Department: 
-		- Select the Department dropdown menu > System Administrators
-		- Select the Role dropdown menu > Supreme Admin
-	- Extended Accesss 
-		- Select Department > Support > Add > Supreme Admin
-- Select Team tab
-	- Select Team dropdown menu > Level II Support
-	- Select Add
-- Select Create	
-
-	
-<p align="center">
-<img src="https://i.imgur.com/HPSPHNU.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/hotx1wo.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
-
-- Create another agent and replace Jane with John.
-	- Follow the same steps as above, except make some changes to the Primary Department
-		- Select the Department dropdown menu > Support
-		- Select the Role dropdown menu > View Only
-	- Extended Accesss 
-		- Select Department > Support > Save Changes
-		
-<p align="center">
-<img src="https://i.imgur.com/qQ8ckBr.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/KVPsUb4.png" height="70%" width="70%" alt="Azure Free Services"/>
-</p>
- 
-     
-
-<h3>Step 7: Configure Users
-</h3>
-
-<p align="center">
-<img src="https://i.imgur.com/UUqCK1d.png" height="80%" width="80%" alt="Azure Free Account"/>		
-	
-- Select the Users tab to create a user
-	- Email Address: Karen(@)osticket.com
-	- Full Name: Karen Karen
-	- Select Add User
-	
-<p align="center">
-<img src="https://i.imgur.com/wpTn12W.png" height="80%" width="80%" alt="Azure Free Account"/>			
-	
- - Select the User tab again to create another user
-	- Email Address: Ken(@)osticket.com
-	- Full Name: Ken Ken
-	- Select Add User
-
-<p align="center">
-<img src="https://i.imgur.com/EXyy5Gq.png" height="80%" width="80%" alt="Azure Free Account"/>		
-
-<h3>Step 8:  Configure Service Level Agreements (SLA)
-</h3>
-
-- We will create three SLAs
-- Select the Manage tab > SLA > Add New SLA Plan
-	- Name: SEV-A 			
-	- Grace Period: 1
-	- Schedule dropdown menu: 24/7
-	- Select Add Plan
-	
-<p align="center">
-<img src="https://i.imgur.com/fMR4yMR.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/3tQnihq.png" height="80%" width="80%" alt="Azure Free Services"/>
-</p>
-
-	- Name: SEV-B
-	- Grace Period: 4
-	- Schedule dropdown menu: 24/7
-	- Select Add Plan
-	
-<p align="center">
-<img src="https://i.imgur.com/pAbQPEP.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-	- Name: SEV-C 
-	- Grace Period: 8
-	- Schedule dropdown menu: Monday - Friday 8AM - 5PM with U.S. Holidays
-	- Select Add Plan
-
-<p align="center">
-<img src="https://i.imgur.com/5cgn0oz.png" height="80%" width="80%" alt="Azure Free Account"/>
-
-
-
-<h3>Step 9:   Configure Help Topics
-</h3>
-
-- We will create four Help Topics
-- Select the Manage tab > Help Topics > Add New Help Topic
-	- Business Critical Outage
-	- Personal Computer Issues
-	- Equipment Request
-	- Password Reset
-- Select Add Topic for each topic
-
-<p align="center">
-<img src="https://i.imgur.com/uFmSyqK.png" height="80%" width="80%" alt="Azure Free Account"/>
-
+<b> We've successfully set up multiple agents along with their departments, roles, and permissions. As well as, configured SLAs (Service Level Agreements), help topics, and users! osTicket is now setup for the next project where I will create and work different tickets using multiple agents and users!  </b>
+<br />
+<br />
