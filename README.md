@@ -22,7 +22,7 @@ This tutorial outlines the post-install configuration of the open-source helpdes
 - Windows 10
     
 
-<h2>Program walk-through:</h2>
+<h2>Implementation/Program walk-through:</h2>
 <p align="center">
 First, we will acknowledge what agent panel vs admin panel looks like. We are admin and will use http://localhost/osTicket/scp/login.php to log in. Below is the agent panel (help desk): <br/>
 <img src="https://i.imgur.com/5ANAUoa.png" height="80%" width="80%" 
